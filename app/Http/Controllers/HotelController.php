@@ -19,7 +19,7 @@ class HotelController extends Controller
     public function index()
     {
         //use eloquent to get rooms and its [customers from hotel] services and contacts
-        $rooms =  Service::all();
+        $rooms =  Service::with('contact','items')->get();
         // $rooms->load('contacts');
         return view('rooms', compact('rooms'));
         // return view('rooms', compact('rooms',''));

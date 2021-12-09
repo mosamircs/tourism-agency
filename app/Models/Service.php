@@ -32,7 +32,7 @@ class Service extends Model
      */
     public function contact()
     {
-        return $this->belongsTo(Contact::class,'supplier_id','id');
+        return $this->belongsTo(Contact::class);
     }
 
     /**

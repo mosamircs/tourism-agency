@@ -17,12 +17,8 @@ class Item extends Model
         'trip_type',
         'class_type',
         'room_type',
-        'availabilty',
-        'rooms_number',
-        'adults_number',
-        'children_numbers',
-        'service_id',
-        'order_id'
+        'from_time',
+        'to_time',
     ];
 
     /**
@@ -32,7 +28,7 @@ class Item extends Model
      */
     public function service()
     {
-        return $this->belongsTo(Service::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(Service::class);
     }
 
     /**

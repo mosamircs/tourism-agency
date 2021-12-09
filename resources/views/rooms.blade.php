@@ -46,11 +46,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{ dd($rooms); }}
                                         @foreach ($rooms as $room)
                                             <tr class="odd">
+                                                
                                                 <td>{{ $room->service_type }}</td>
-                                                <td>{{ $room->contact_name}}</td>
-                                                <td>{{ $room->price }}</td>
+                                                <td>{{ $room->contact->contact_name}}</td>
+                                                <td>{{ $room->items->reservation_number }}</td>
                                                 <td>{{ $room->room_type }}</td>
                                                 <td>{{ $room->price }}</td>
                                                 <td>{{ $room->price }}</td>
