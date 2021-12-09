@@ -1,0 +1,73 @@
+ Schema::create('cars', function (Blueprint $table) {
+
+            $table->id();
+
+            $table->integer('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+
+            $table->integer('supplier_id')->unsigned();
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
+
+            $table->date('from');
+            $table->date('to');
+            $table->float('price');
+            $table->float('total');
+            $table->boolean('payment_status');
+
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
+            $table->integer('model_id')->unsigned();
+            $table->foreign('model_id')->references('id')->on('models')->onDelete('cascade');
+
+            $table->timestamps();
+
+        });
+
+
+Schema::create('categories', function (Blueprint $table) {
+        $table->id();
+        $table->text('name');
+        $table->timestamps();
+
+});
+
+
+************* Analysis *******************
+
+
+table for => CUSTOMER  
+
+        Id        | int
+        name      | text
+        email     | varchar
+        phone     | integer
+        person_id | integer
+
+
+table for => SUPPLIER 
+
+        Id   | int
+        name | text
+        email| varchar
+        pnone| integer
+        type | enum
+
+
+
+table for => CARS
+
+        Id            | int
+        from          | date
+        to            | date
+        price         | float
+        total         | float
+        payment_status| boolean
+        customer_id   | forignkey
+        category_id   | forignkey
+        type_id       | forignkey
+
+
+
+
+
